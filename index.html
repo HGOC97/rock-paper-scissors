@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock, Paper, Scissors!</title>
+    </head>
+    <body>
+        <script>
+            function computerPlay() {
+                let randomNumber = Math.random();
+                if (randomNumber <= 0.33) {
+                    return 0;
+                } else if (randomNumber > 0.33 && randomNumber <= 0.66) {
+                    return 1;
+                } else {
+                    return 2;
+                }
+            }
+
+            function gameRound(playerSelection, computerSelection) {
+                if (playerSelection.toLowerCase() === "rock") {
+                    if (computerSelection === 0) {
+                        return "Both chose rock, it's a draw!";
+                    } else if(computerSelection === 1) {
+                        return "Computer chose paper, you lost!";
+                    } else {
+                        return "Computer chose scissors, you won!";
+                    }
+                } else if (playerSelection.toLowerCase() === "paper") {
+                    if (computerSelection === 0) {
+                        return "Computer chose rock, you won!";
+                    } else if (computerSelection === 1) {
+                        return "Computer chose paper, it's a draw!";
+                    } else {
+                        return "Computer chose scissors, you lost!";
+                    }
+                } else if(playerSelection.toLowerCase() === "scissors") {
+                    if (computerSelection === 0) {
+                        return "Computer chose rock, you lost!";
+                    } else if (computerSelection === 1) {
+                        return "Computer chose paper, you won!";
+                    } else {
+                        return "Computer chose scissors, it's a draw!";
+                    }
+                } else {
+                    return "Invalid input!";
+                }
+            }
+
+            function game() {
+                let playerScore = 0;
+                let computerScore = 0;
+
+                for (let i = 0; i < 5; i++) {
+                    let roundResult;
+                    roundResult = gameRound(prompt("Enter your choice:"), computerPlay());
+                    resultCheck = roundResult.slice(-4);
+                    if (resultCheck === "won!") {
+                        playerScore++;
+                    } else if (resultCheck === "ost!") {
+                        computerScore++;
+                    }
+                    console.log(roundResult);
+                }
+                console.log("Your score: " + playerScore);
+                console.log("Computer score: " + computerScore);
+            }
+
+            game();
+        </script>
+    </body>
+</html>
