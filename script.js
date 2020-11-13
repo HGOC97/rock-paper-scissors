@@ -94,6 +94,3 @@ function game(playerSelection) {
     computerScoreText.textContent = `Computer Score: ${computerScore}`;
 
 }
-
-// Run the actual game
-game();
