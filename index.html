@@ -2,75 +2,28 @@
 <html>
     <head>
         <title>Rock, Paper, Scissors!</title>
+        <link href="style.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     </head>
     <body>
-        <script>
-            // Let the computer make a random selection
-            function computerPlay() {
-                let randomNumber = Math.random();
-                if (randomNumber <= 0.33) {
-                    return 0; // Rock
-                } else if (randomNumber > 0.33 && randomNumber <= 0.66) {
-                    return 1; // Paper
-                } else {
-                    return 2; // Scissors
-                }
-            }
-
-            // One round of rock, paper, scissors
-            function gameRound(playerSelection, computerSelection) {
-                if (playerSelection.toLowerCase() === "rock") {
-                    if (computerSelection === 0) {
-                        return "Both chose rock, it's a draw!";
-                    } else if(computerSelection === 1) {
-                        return "Computer chose paper, you lost!";
-                    } else {
-                        return "Computer chose scissors, you won!";
-                    }
-                } else if (playerSelection.toLowerCase() === "paper") {
-                    if (computerSelection === 0) {
-                        return "Computer chose rock, you won!";
-                    } else if (computerSelection === 1) {
-                        return "Computer chose paper, it's a draw!";
-                    } else {
-                        return "Computer chose scissors, you lost!";
-                    }
-                } else if(playerSelection.toLowerCase() === "scissors") {
-                    if (computerSelection === 0) {
-                        return "Computer chose rock, you lost!";
-                    } else if (computerSelection === 1) {
-                        return "Computer chose paper, you won!";
-                    } else {
-                        return "Computer chose scissors, it's a draw!";
-                    }
-                } else {
-                    // If the user hasn't entered rock, paper or scissors as input
-                    return "Invalid input!";
-                }
-            }
-
-            // Run the game a few times and track the score
-            function game() {
-                let playerScore = 0;
-                let computerScore = 0;
-
-                for (let i = 0; i < 5; i++) {
-                    let roundResult;
-                    roundResult = gameRound(prompt("Enter your choice:"), computerPlay());
-                    resultCheck = roundResult.slice(-4);
-                    if (resultCheck === "won!") {
-                        playerScore++;
-                    } else if (resultCheck === "ost!") {
-                        computerScore++;
-                    }
-                    console.log(roundResult);
-                }
-                console.log("Your score: " + playerScore);
-                console.log("Computer score: " + computerScore);
-            }
-
-            // Run the actual game
-            game();
-        </script>
+        <header>
+            <h1 id="header-title">HGOC97's Rock-Paper-Scissors</h1>
+        </header>
+        <main>
+            <p id="round">Round: 1</p>
+            <div id="score-panel">
+                <p id="player-score" class="score-text">Player Score: 0</p>
+                <p id="computer-score" class="score-text">Computer Score: 0</p>
+            </div>
+            <div id="container">
+                <img id="rock" class="game-option" src="https://img.icons8.com/office/100/000000/rock.png"/>
+                <img id="paper" class="game-option" src="https://img.icons8.com/officel/100/000000/toilet-paper.png"/>
+                <img id="scissors" class="game-option" src="https://img.icons8.com/dusk/100/000000/scissors.png"/>
+            </div>
+            <p id="computer-selection"></p>
+            <p id="winner"></p>
+        </main>
+        <script src="script.js"></script>
     </body>
 </html>
