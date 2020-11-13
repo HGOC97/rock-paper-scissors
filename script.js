@@ -15,6 +15,9 @@ gameOptions.forEach((gameOption) => {
             game(e.target.id);
             roundCount++;
             roundCountText.textContent = `Round: ${roundCount + 1}`;
+            tempCompSelection = tempCompSelection === 0 ? "Rock"
+            : tempCompSelection === 1 ? "Paper"
+            : "scissors";
         }
         if (roundCount === 5) {
             roundCountText.textContent = "Round: 5";
@@ -27,9 +30,6 @@ gameOptions.forEach((gameOption) => {
                 winnerText.textContent = "It's a draw!";
             }
         }
-        tempCompSelection = tempCompSelection === 0 ? "Rock"
-        : tempCompSelection === 1 ? "Paper"
-        : "Scissors";
         computerSelectionText.textContent = `Computer Chose ${tempCompSelection}`;
     })
 })
